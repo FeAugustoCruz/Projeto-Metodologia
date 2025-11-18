@@ -15,11 +15,13 @@ while True:
     hands, img = detector.findHands(img)
     if hands:
         hand = hands[0]
+        #hand2 = hand[1]
         posiX, posiY, largura, altura = hand['bbox']
         #print(f"({posiX},{posiY})")
         print(f"y: {posiY + altura}, x: {posiX + largura}")
         #print(f"w: {w}")
         #print(f"h: {h}")
+        #error->
         if(posiY > 0 and posiX > 0):
             recorteImagem = img[posiY: posiY + altura, posiX: posiX + largura]
             cv2.imshow("recorteImagem", recorteImagem)
